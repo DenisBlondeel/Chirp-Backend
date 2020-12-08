@@ -1,4 +1,4 @@
-package me.chirp.dto;
+package me.chirp.model;
 
 public class PostDTO {
 

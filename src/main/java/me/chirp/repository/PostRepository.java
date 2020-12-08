@@ -1,4 +1,4 @@
 package me.chirp.repository;
 
-public class PostRepository {
+public interface PostRepository {
 }
