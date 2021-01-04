@@ -5,6 +5,7 @@ import me.chirp.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -15,12 +16,12 @@ public class PostController {
     @Autowired
     PostService postService;
 
-    @PostMapping
-    public void addPost(PostDTO post){
+    @PostMapping("/post")
+    public void addPost(@RequestBody PostDTO post){
         postService.addPost(post);
     }
 
-    @GetMapping
+    @GetMapping("/post")
     public List<PostDTO> getAllPosts(){
         return postService.getAllPosts();
     }
