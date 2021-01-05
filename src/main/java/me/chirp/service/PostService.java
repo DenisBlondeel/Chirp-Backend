@@ -24,7 +24,7 @@ public class PostService {
 
     public List<PostDTO> getAllPosts(){
 
-        return postRepository.findAll()
+        return postRepository.findAllByOrderByIdDesc()
                 .stream()
                 .map(PostMapper::postToDTO)
                 .collect(Collectors.toList());

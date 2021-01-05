@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface PostRepository extends JpaRepository<Post, UUID> {
+public interface PostRepository extends JpaRepository<Post, Long> {
 
-    public List<Post> findAll();
+    public List<Post> findAllByOrderByIdDesc();
 
 
 }
