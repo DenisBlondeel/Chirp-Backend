@@ -1,17 +1,17 @@
 package me.chirp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.UUID;
+import javax.persistence.*;
 
 @Entity
+@Table
 public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    @ManyToOne
+    private User user;
 
     private String content;
 
@@ -39,5 +39,13 @@ public class Post {
 
     public Long getId() {
         return id;
+    }
+
+    public void setUser(User author) {
+        this.user = author;
+    }
+
+    public User getUser() {
+        return user;
     }
 }

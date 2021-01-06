@@ -1,9 +1,14 @@
 package me.chirp.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class PostDTO {
 
     private String content;
     private boolean publicPost;
+
+    @JsonProperty
+    private UserDTO user;
 
     public PostDTO(){
 
@@ -24,4 +29,13 @@ public class PostDTO {
     public void setPublicPost(boolean publicPost) {
         this.publicPost = publicPost;
     }
+
+    public UserDTO getProfileDTO() {
+        return user;
+    }
+
+    public void setProfileDTO(UserDTO userDTO) {
+        this.user = userDTO;
+    }
+
 }
