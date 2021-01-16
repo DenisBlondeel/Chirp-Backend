@@ -1,5 +1,7 @@
 package me.chirp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,9 +10,11 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     private User user;
 
     private String content;
@@ -45,6 +49,7 @@ public class Post {
         this.user = author;
     }
 
+    @JsonBackReference
     public User getUser() {
         return user;
     }

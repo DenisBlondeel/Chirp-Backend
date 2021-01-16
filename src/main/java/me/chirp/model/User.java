@@ -1,24 +1,37 @@
 package me.chirp.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
-@Table
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    @Column(unique=true,columnDefinition="VARCHAR(64)")
+    private String username;
+
+    private UUID kcId;
 
     private String firstName;
     private String lastName;
     private String email;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Post> posts;
 
     public User(){}
+
+    @JsonManagedReference
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -42,5 +55,21 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public UUID getKcId() {
+        return kcId;
+    }
+
+    public void setKcId(UUID kcId) {
+        this.kcId = kcId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
