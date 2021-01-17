@@ -81,7 +81,7 @@ public class UserService {
 
         HttpEntity<List<Map<String, String>>> entity = new HttpEntity<>(list, header);
 
-        return makeRestCall(roleEndpointPrefix + "/" + id + "/" + roleEndpointSuffix,entity, HttpMethod.DELETE);
+        return makeRestCall(roleEndpointPrefix + id + roleEndpointSuffix,entity, HttpMethod.DELETE);
     }
 
     public String authenticate() {
