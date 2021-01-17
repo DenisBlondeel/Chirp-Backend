@@ -10,7 +10,7 @@ public class RoleConfig {
     private Role userRole;
     private Role newUserRole;
 
-    public RoleConfig(@Value("${role.new_user.id}") String userId, @Value("${role.new_user.id}") String newUserId){
+    public RoleConfig(@Value("${role.user.id}") String userId, @Value("${role.new_user.id}") String newUserId){
          userRole = new Role("user", userId);
          newUserRole = new Role("new_user", newUserId);
     }
