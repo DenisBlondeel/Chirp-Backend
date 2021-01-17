@@ -44,3 +44,5 @@ buildNumber.properties
 #Custom tags
 .idea/
 Chirp-Backend.iml
+
+src/main/resources/META-INF/
