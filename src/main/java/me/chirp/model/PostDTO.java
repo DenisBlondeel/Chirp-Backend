@@ -30,11 +30,11 @@ public class PostDTO {
         this.publicPost = publicPost;
     }
 
-    public UserDTO getProfileDTO() {
+    public UserDTO getUserDto() {
         return user;
     }
 
-    public void setProfileDTO(UserDTO userDTO) {
+    public void setUserDto(UserDTO userDTO) {
         this.user = userDTO;
     }
 

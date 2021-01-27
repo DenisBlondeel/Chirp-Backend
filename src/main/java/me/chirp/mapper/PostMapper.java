@@ -9,11 +9,7 @@ public class PostMapper {
 
     public static Post dtoToPost(PostDTO dto){
         Post post = new Post();
-        User user = new User();
-
-        user.setFirstName(dto.getProfileDTO().getFirstName());
-        user.setLastName(dto.getProfileDTO().getLastName());
-        //author.setEmail(dto.getProfileDTO().getEmail());
+        User user = UserMapper.dtoToUser(dto.getUserDto());
 
         post.setContent(dto.getContent());
         post.setPublicPost(dto.isPublicPost());

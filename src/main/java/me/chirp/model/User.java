@@ -12,7 +12,6 @@ public class User {
     @Id
     @Column(unique=true,columnDefinition="VARCHAR(64)")
     private String username;
-
     private UUID kcId;
 
     private String firstName;
